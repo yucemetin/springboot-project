@@ -1,26 +1,27 @@
 package com.metin.project.entities.concrete;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "languages")
+@Table(name = "technologies")
 @Entity
-public class Language {
+public class SubTechnology {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")
     private String name;
 
+    @ManyToOne(targetEntity = Language.class)
+    @JoinColumn(name = "language_id")
+    private Language language;
 }

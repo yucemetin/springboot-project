@@ -1,15 +1,8 @@
 package com.metin.project.dataAccess.abstracts;
 
 import com.metin.project.entities.concrete.Language;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+public interface LanguageRepository extends JpaRepository<Language, Integer> {
 
-public interface LanguageRepository {
-    void add(Language language);
-
-    void delete(int id);
-
-    List<Language> getAll();
-
-    Language getLanguage(int id);
 }
